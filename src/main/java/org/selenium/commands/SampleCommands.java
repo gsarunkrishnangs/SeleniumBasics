@@ -56,7 +56,7 @@ public class SampleCommands {
 	}
 
 	public static void assignmentDropDown() {
-		//Assignment Dropdownbox
+		// Assignment Dropdownbox
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://selenium.qabible.in/select-input.php");
 		driver.manage().window().maximize();
@@ -75,15 +75,25 @@ public class SampleCommands {
 				dropdownlist.get(i).click();
 			}
 		}
+		WebElement multidropdown = driver.findElement(By.xpath("//select[@id='multi-select-field']"));
+		Select multiobject = new Select(multidropdown);
+		for (int i = 0; i < 3; i++) {
+			multiobject.selectByIndex(i);
+		}
+
+		List<WebElement> multidropdowntext = multiobject.getAllSelectedOptions();
+		for (int j = 0; j < multidropdowntext.size(); j++) {
+			System.out.println(multidropdowntext.get(j).getText());
+		}
+
 		driver.quit();
 	}
 
 	public static void main(String[] args) {
-		
+
 		SampleCommands.verifyCommunityPoll();
 		SampleCommands.verifyValuesFromDropDown();
 		SampleCommands.assignmentDropDown();
-
 
 	}
 
