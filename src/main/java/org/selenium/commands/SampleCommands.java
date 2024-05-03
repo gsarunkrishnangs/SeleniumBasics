@@ -1,11 +1,15 @@
 package org.selenium.commands;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class SampleCommands {
@@ -84,16 +88,41 @@ public class SampleCommands {
 		List<WebElement> multidropdowntext = multiobject.getAllSelectedOptions();
 		for (int j = 0; j < multidropdowntext.size(); j++) {
 			System.out.println(multidropdowntext.get(j).getText());
+			multiobject.deselectAll();
 		}
 
 		driver.quit();
 	}
 
-	public static void main(String[] args) {
+	public static void verifyMultiSelectDropDown() throws InterruptedException {
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
+		driver.manage().window().maximize();
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.PAGE_DOWN).build().perform(); // Page Down
+		System.out.println("Scroll down perfomed");
+		Thread.sleep(3000);
+		WebElement multidropdown = driver.findElement(By.xpath("//select[@id='state']"));
+		Select select = new Select(multidropdown);
+		boolean selectedvalue = select.isMultiple();
+		System.out.println(selectedvalue);
+		select.selectByVisibleText("Haryana");
+		select.selectByVisibleText("Rajasthan");
+		List<WebElement> selectedvalues = select.getAllSelectedOptions();
+		for (WebElement e : selectedvalues) {
+			System.out.println(e.getText());
+		}
+
+		driver.quit();
+	}
+
+	public static void main(String[] args) throws InterruptedException {
 
 		SampleCommands.verifyCommunityPoll();
 		SampleCommands.verifyValuesFromDropDown();
 		SampleCommands.assignmentDropDown();
+		SampleCommands.verifyMultiSelectDropDown();
 
 	}
 
