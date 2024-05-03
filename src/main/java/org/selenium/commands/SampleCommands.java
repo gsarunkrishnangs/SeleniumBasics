@@ -113,7 +113,7 @@ public class SampleCommands {
 		for (WebElement e : selectedvalues) {
 			System.out.println(e.getText());
 		}
-
+        
 		driver.quit();
 	}
 
@@ -122,7 +122,7 @@ public class SampleCommands {
 		SampleCommands.verifyCommunityPoll();
 		SampleCommands.verifyValuesFromDropDown();
 		SampleCommands.assignmentDropDown();
-		SampleCommands.verifyMultiSelectDropDown();
+		SampleCommands.verifyMultiSelectDropDown(); 
 
 	}
 
