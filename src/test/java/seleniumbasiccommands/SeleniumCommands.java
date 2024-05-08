@@ -3,10 +3,9 @@ package seleniumbasiccommands;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SeleniumCommands extends BrowserLaunch {
@@ -26,7 +25,7 @@ public class SeleniumCommands extends BrowserLaunch {
 		System.out.println(countryname.getText());
 		List<WebElement> dropdownlist = select.getOptions();
 		for (int i = 0; i < dropdownlist.size(); i++) {
-			System.out.println(dropdownlist.get(i).getText());
+			System.out.println(dropdownlist.get(i).getText()); 
 			String dropdownlisttext = dropdownlist.get(i).getText();
 			if (dropdownlisttext.equals("Yellow")) {
 				dropdownlist.get(i).click();
@@ -80,7 +79,10 @@ public class SeleniumCommands extends BrowserLaunch {
 		submitbutton.click();
 		String registrationhomewindow = driver.getTitle();
 		System.out.println("Home page title is" + " " + registrationhomewindow);
-
+		WebElement actualmessage = driver.findElement(By.xpath("//a[text()=' sign-in ']"));
+		String actualresult = actualmessage.getText();
+		String expectedresult = "sign-in";
+		Assert.assertEquals(actualresult, expectedresult, "Mercury Tours Registration failed");
 	}
 
 	@Test
@@ -95,7 +97,7 @@ public class SeleniumCommands extends BrowserLaunch {
 		WebElement lastname = driver.findElement(By.xpath("//input[@id='LastName']"));
 		lastname.sendKeys("Krishnan");
 		WebElement email = driver.findElement(By.xpath("//input[@id='Email']"));
-		email.sendKeys("gsarunkrishnangs123@gmail.com");
+		email.sendKeys("gsarunkrishnangs123456@gmail.com");
 		WebElement password = driver.findElement(By.xpath("//input[@id='Password']"));
 		password.sendKeys("arun@123");
 		WebElement confirmpassword = driver.findElement(By.xpath("//input[@id='ConfirmPassword']"));
@@ -104,7 +106,59 @@ public class SeleniumCommands extends BrowserLaunch {
 		registerbutton.click();
 		String registrationhomewindow = driver.getTitle();
 		System.out.println("Home page title is" + " " + registrationhomewindow);
-
+		WebElement actualmessage = driver.findElement(By.xpath("//div[@class='result']"));
+		String actualresult = actualmessage.getText();
+		String expectedresult = "Your registration completed";
+		Assert.assertEquals(actualresult, expectedresult, "Registration failed");
 	}
-
-}
+	
+	@Test
+	public void validateDemoWebShopLogin() {
+        driver.get("https://demowebshop.tricentis.com/login");
+		WebElement userName = driver.findElement(By.id("Email"));
+		userName.sendKeys("gsarunkrishnangs@gmail.com");
+		WebElement passWord = driver.findElement(By.id("Password"));
+		passWord.sendKeys("Tester12@");
+		WebElement loginButton = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input"));
+		loginButton.click();
+        WebElement actualemailfield = driver.findElement(By.xpath("//a[text() = 'gsarunkrishnangs@gmail.com']"));
+        String actualresult = actualemailfield.getText();
+        String expectedresult = "gsarunkrishnangs@gmail.com";
+        Assert.assertEquals(actualresult, expectedresult, "Login not success");
+	}
+	
+	@Test
+	public void validateRadiobuttonIsSelected() {
+		boolean ismaleselected;
+		driver.get("https://demowebshop.tricentis.com/register");
+		WebElement maleradiobutton = driver.findElement(By.xpath("//input[@id='gender-male']"));
+		ismaleselected = maleradiobutton.isSelected();
+		Assert.assertFalse(ismaleselected, "Radio button is selected");
+		System.out.println("Male element before selected"+" "+ismaleselected);
+		maleradiobutton.click();
+		ismaleselected = maleradiobutton.isSelected();
+		Assert.assertTrue(ismaleselected, "Radio button is not selected");
+		System.out.println("Male element after selected"+" "+ismaleselected);
+	}
+	
+	@Test
+	public void validateButtonIsEnabled() {
+		boolean issubscribebuttonenabled;
+		driver.get("https://demowebshop.tricentis.com/");
+		WebElement subscribebutton = driver.findElement(By.xpath("//input[@id='newsletter-subscribe-button']"));
+		issubscribebuttonenabled = subscribebutton.isEnabled();
+		Assert.assertTrue(issubscribebuttonenabled, "Subscribe button is not enabled");
+		System.out.println("Subscribe button is enabled"+" "+issubscribebuttonenabled);
+		}
+	
+	@Test
+	public void validateButtonIsDisplayed() {
+		boolean isvotebuttondisplayed;
+		driver.get("https://demowebshop.tricentis.com/");
+		WebElement votebutton = driver.findElement(By.xpath("//input[@id='vote-poll-1']"));
+		isvotebuttondisplayed = votebutton.isDisplayed();
+		Assert.assertTrue(isvotebuttondisplayed, "Vote button is not displayed");
+		System.out.println("Vote button is displayed"+" "+isvotebuttondisplayed);
+		}
+	
+	}
