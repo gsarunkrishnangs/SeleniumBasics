@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -25,7 +26,7 @@ public class SeleniumCommands extends BrowserLaunch {
 		System.out.println(countryname.getText());
 		List<WebElement> dropdownlist = select.getOptions();
 		for (int i = 0; i < dropdownlist.size(); i++) {
-			System.out.println(dropdownlist.get(i).getText()); 
+			System.out.println(dropdownlist.get(i).getText());
 			String dropdownlisttext = dropdownlist.get(i).getText();
 			if (dropdownlisttext.equals("Yellow")) {
 				dropdownlist.get(i).click();
@@ -111,22 +112,23 @@ public class SeleniumCommands extends BrowserLaunch {
 		String expectedresult = "Your registration completed";
 		Assert.assertEquals(actualresult, expectedresult, "Registration failed");
 	}
-	
+
 	@Test
 	public void validateDemoWebShopLogin() {
-        driver.get("https://demowebshop.tricentis.com/login");
+		driver.get("https://demowebshop.tricentis.com/login");
 		WebElement userName = driver.findElement(By.id("Email"));
 		userName.sendKeys("gsarunkrishnangs@gmail.com");
 		WebElement passWord = driver.findElement(By.id("Password"));
 		passWord.sendKeys("Tester12@");
-		WebElement loginButton = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input"));
+		WebElement loginButton = driver.findElement(
+				By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input"));
 		loginButton.click();
-        WebElement actualemailfield = driver.findElement(By.xpath("//a[text() = 'gsarunkrishnangs@gmail.com']"));
-        String actualresult = actualemailfield.getText();
-        String expectedresult = "gsarunkrishnangs@gmail.com";
-        Assert.assertEquals(actualresult, expectedresult, "Login not success");
+		WebElement actualemailfield = driver.findElement(By.xpath("//a[text() = 'gsarunkrishnangs@gmail.com']"));
+		String actualresult = actualemailfield.getText();
+		String expectedresult = "gsarunkrishnangs@gmail.com";
+		Assert.assertEquals(actualresult, expectedresult, "Login not success");
 	}
-	
+
 	@Test
 	public void validateRadiobuttonIsSelected() {
 		boolean ismaleselected;
@@ -134,13 +136,13 @@ public class SeleniumCommands extends BrowserLaunch {
 		WebElement maleradiobutton = driver.findElement(By.xpath("//input[@id='gender-male']"));
 		ismaleselected = maleradiobutton.isSelected();
 		Assert.assertFalse(ismaleselected, "Radio button is selected");
-		System.out.println("Male element before selected"+" "+ismaleselected);
+		System.out.println("Male element before selected" + " " + ismaleselected);
 		maleradiobutton.click();
 		ismaleselected = maleradiobutton.isSelected();
 		Assert.assertTrue(ismaleselected, "Radio button is not selected");
-		System.out.println("Male element after selected"+" "+ismaleselected);
+		System.out.println("Male element after selected" + " " + ismaleselected);
 	}
-	
+
 	@Test
 	public void validateButtonIsEnabled() {
 		boolean issubscribebuttonenabled;
@@ -148,9 +150,9 @@ public class SeleniumCommands extends BrowserLaunch {
 		WebElement subscribebutton = driver.findElement(By.xpath("//input[@id='newsletter-subscribe-button']"));
 		issubscribebuttonenabled = subscribebutton.isEnabled();
 		Assert.assertTrue(issubscribebuttonenabled, "Subscribe button is not enabled");
-		System.out.println("Subscribe button is enabled"+" "+issubscribebuttonenabled);
-		}
-	
+		System.out.println("Subscribe button is enabled" + " " + issubscribebuttonenabled);
+	}
+
 	@Test
 	public void validateButtonIsDisplayed() {
 		boolean isvotebuttondisplayed;
@@ -158,7 +160,105 @@ public class SeleniumCommands extends BrowserLaunch {
 		WebElement votebutton = driver.findElement(By.xpath("//input[@id='vote-poll-1']"));
 		isvotebuttondisplayed = votebutton.isDisplayed();
 		Assert.assertTrue(isvotebuttondisplayed, "Vote button is not displayed");
-		System.out.println("Vote button is displayed"+" "+isvotebuttondisplayed);
-		}
-	
+		System.out.println("Vote button is displayed" + " " + isvotebuttondisplayed);
 	}
+
+	@Test
+	public void verifyRightClick() {
+
+		driver.get("https://demo.guru99.com/test/simple_context_menu.html");
+		WebElement rightclickbutton = driver.findElement(By.xpath("//span[text()='right click me']"));
+		Actions action = new Actions(driver);
+		action.contextClick(rightclickbutton).build().perform();
+
+	}
+
+	@Test
+	public void verifyDoubleClick() {
+
+		driver.get("https://demo.guru99.com/test/simple_context_menu.html");
+		WebElement doubleclickbutton = driver.findElement(By.xpath("//button[text()='Double-Click Me To See Alert']"));
+		Actions action = new Actions(driver);
+		action.doubleClick(doubleclickbutton).build().perform();
+	}
+
+	@Test
+	public void verifyDragAndDrop() {
+
+		driver.get("https://demoqa.com/droppable");
+		WebElement draggable = driver.findElement(By.xpath("//div[@id='draggable']"));
+		WebElement droppable = driver.findElement(
+				By.xpath("//div[@class='simple-drop-container']//div[@id='draggable']//following-sibling::div"));
+		Actions action = new Actions(driver);
+		action.dragAndDrop(draggable, droppable).build().perform();
+
+	}
+
+	@Test
+	public void verifyDragAndDropAxis() {
+
+		driver.get("https://demoqa.com/dragabble");
+		WebElement dragelement = driver.findElement(By.xpath("//div[text()='Drag me']"));
+		Actions action = new Actions(driver);
+		action.dragAndDropBy(dragelement, 100, 100).build().perform();
+	}
+
+	@Test
+	public void verifyMouseHover() {
+
+		driver.get("https://demoqa.com/menu/");
+		WebElement mainitem2 = driver.findElement(By.xpath("//a[text()='Main Item 2']"));
+		Actions action = new Actions(driver);
+		action.moveToElement(mainitem2).build().perform();
+		WebElement sublist = driver.findElement(By.xpath("//a[text()='SUB SUB LIST »']"));
+		action.moveToElement(sublist).build().perform();
+		WebElement secondsublist1 = driver.findElement(By.xpath("//a[text()='Sub Sub Item 1']"));
+		boolean subitemdisplay = secondsublist1.isDisplayed();
+		System.out.println("Sub is Visible" + " " + subitemdisplay);
+		Assert.assertTrue(subitemdisplay, "Sub Item 1 is not displayed");
+		WebElement secondsublist2 = driver.findElement(By.xpath("//a[text()='Sub Sub Item 2']"));
+		String actualresult = secondsublist2.getText();
+		System.out.println("Actual result is" + " " + actualresult);
+		String expectedresult = "Sub Sub Item 2";
+		Assert.assertEquals(actualresult, expectedresult, "Sub menu item name is different");
+
+	}
+
+	@Test
+	public void assignmentDragAndDrop() {
+
+		driver.get("https://demo.guru99.com/test/drag_drop.html");
+		WebElement drag = driver.findElement(By.xpath("//li[@id='credit1']"));
+		WebElement drop = driver
+				.findElement(By.xpath("//div[@class='ui-widget-content']//ol[@id='loan']//following-sibling::li"));
+		Actions action = new Actions(driver);
+		action.dragAndDrop(drag, drop).build().perform();
+
+	}
+
+	@Test
+	public void assignmentRightClick() {
+
+		driver.get("https://demo.guru99.com/test/drag_drop.html");
+		WebElement clickright = driver.findElement(By.xpath("//a[text()='Agile Project']"));
+		Actions action = new Actions(driver);
+		action.contextClick(clickright).build().perform();
+
+	}
+
+	@Test
+	public void assignmentDoubleClick() throws InterruptedException {
+
+		driver.get("https://demo.guru99.com/test/drag_drop.html");
+		WebElement clickdouble = driver.findElement(By.xpath("//a[text()='Testing']"));
+		Actions action = new Actions(driver);
+		action.doubleClick(clickdouble).build().perform();
+		Thread.sleep(3000);
+		WebElement verification = driver.findElement(By.xpath("//h2[text()='Software Testing Training Summary']"));
+		boolean test = verification.isDisplayed();
+		System.out.println("Result is" + " " + test);
+		Assert.assertTrue(test, "Testing Training Summary page is not displayed");
+
+	}
+
+}
