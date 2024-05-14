@@ -2,6 +2,7 @@ package seleniumbasiccommands;
 
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -259,6 +260,50 @@ public class SeleniumCommands extends BrowserLaunch {
 		System.out.println("Result is" + " " + test);
 		Assert.assertTrue(test, "Testing Training Summary page is not displayed");
 
+	}
+
+	@Test
+	public void verifySimpleAlert() {
+
+		driver.get("https://demoqa.com/alerts");
+		WebElement clickmebutton = driver.findElement(By.xpath("//button[@id='alertButton']"));
+		clickmebutton.click();
+		Alert simplealert = driver.switchTo().alert();
+		simplealert.accept();
+	}
+
+	@Test
+	public void verifyConfirmationAlert() {
+
+		driver.get("https://demoqa.com/alerts");
+		WebElement confirmbutton = driver.findElement(By.xpath("//button[@id='confirmButton']"));
+		confirmbutton.click();
+		Alert confirmalert = driver.switchTo().alert();
+		String alerttext = confirmalert.getText();
+		System.out.println("Alert text is" + " " + alerttext);
+		confirmalert.dismiss();
+		WebElement confirmmessage = driver.findElement(By.xpath("//span[text()='Cancel']"));
+		String actualresult = confirmmessage.getText();
+		String expectedresult = "You selected Cancel";
+		Assert.assertEquals(actualresult, expectedresult, "Alert is accepted");
+	}
+
+	@Test
+
+	public void verifyPromptAlert() {
+
+		driver.get("https://demoqa.com/alerts");
+		WebElement promptbutton = driver.findElement(By.xpath("//button[@id='promtButton']"));
+		promptbutton.click();
+		Alert promptalert = driver.switchTo().alert();
+		String promptalerttext = promptalert.getText();
+		System.out.println("Alert text is" + " " + promptalerttext);
+		promptalert.sendKeys("My name is Arun");
+		promptalert.accept();
+		WebElement confirmmessage = driver.findElement(By.xpath("//span[text()='My name is Arun']"));
+		String actualresult = confirmmessage.getText();
+		String expectedresult = "You entered My name is Arun";
+		Assert.assertEquals(actualresult, expectedresult, "Text not entered / Wrong text entered");
 	}
 
 }
