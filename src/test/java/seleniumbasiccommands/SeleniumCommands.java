@@ -1,9 +1,12 @@
 package seleniumbasiccommands;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -306,4 +309,57 @@ public class SeleniumCommands extends BrowserLaunch {
 		Assert.assertEquals(actualresult, expectedresult, "Text not entered / Wrong text entered");
 	}
 
+	@Test
+	public void verifyMultipleWindowHandles() {
+		driver.get("https://demo.guru99.com/popup.php");
+		String parentwindowid = driver.getWindowHandle();
+		System.out.println("Parent Window handle is" + " " + parentwindowid);
+		WebElement clicklink = driver.findElement(By.xpath("//a[text()='Click Here']"));
+		clicklink.click();
+		Set<String> windowshandleid = driver.getWindowHandles();
+		System.out.println("All Window handles are" + " " + windowshandleid);
+		Iterator<String> values = windowshandleid.iterator();
+		while (values.hasNext()) {
+			String childwindowid = values.next();
+			if (!parentwindowid.equals(childwindowid)) {
+				driver.switchTo().window(childwindowid);
+				WebElement email = driver.findElement(By.cssSelector("input[name='emailid']"));
+				email.sendKeys("arun@gmail.com");
+				WebElement submitbutton = driver.findElement(By.xpath("//input[@name='btnLogin']"));
+				submitbutton.click();
+				driver.close();
+			}
+		}
+		driver.switchTo().window(parentwindowid);
+	}
+
+	@Test
+	public void assignmentVerifyMultipleWindows() throws InterruptedException {
+
+		driver.get("https://demoqa.com/browser-windows");
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.PAGE_DOWN).build().perform(); // Page Down
+		System.out.println("Scroll down perfomed");
+		Thread.sleep(3000);
+		String parentwindow = driver.getWindowHandle();
+		System.out.println("Parent window handle is" + " " + parentwindow);
+		WebElement windowbutton = driver.findElement(By.xpath("//button[@id='windowButton']"));
+		windowbutton.click();
+		Set<String> allhandles = driver.getWindowHandles();
+		System.out.println("All window handles are" + " " + allhandles);
+		Iterator<String> values = allhandles.iterator();
+		while (values.hasNext()) {
+			String childwindow = values.next();
+			if (!parentwindow.equals(childwindow)) {
+				driver.switchTo().window(childwindow);
+				WebElement pageheading = driver.findElement(By.xpath("//h1[text()='This is a sample page']"));
+				String childwindowheading = pageheading.getText();
+				System.out.println("Child window heading is" + " " + childwindowheading);
+				driver.close();
+			}
+		}
+
+		driver.switchTo().window(parentwindow);
+
+	}
 }
