@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -361,5 +362,64 @@ public class SeleniumCommands extends BrowserLaunch {
 
 		driver.switchTo().window(parentwindow);
 
+	}
+
+	@Test
+	public void verifyFileUpload() {
+
+		driver.get("https://demo.guru99.com/test/upload/");
+		WebElement fileupload = driver.findElement(By.xpath("//input[@id='uploadfile_0']"));
+		fileupload.sendKeys("D:\\Java\\SeleniumBasics\\src\\main\\resources\\Java_Arrays.docx");
+		WebElement checkbox = driver.findElement(By.xpath("//input[@id='terms']"));
+		checkbox.click();
+		WebElement submitbutton = driver.findElement(By.xpath("//button[@id='submitbutton']"));
+		submitbutton.click();
+		/*
+		 * WebElement result = driver.findElement(By.
+		 * xpath("//center[text()='has been successfully uploaded.']")); String
+		 * actualresult = result.getText();
+		 * System.out.println("Result message is"+" "+actualresult); String
+		 * expectedresult = "1 file has been successfully uploaded.";
+		 * Assert.assertEquals(actualresult, expectedresult, "File uploading failed");
+		 */
+	}
+
+	@Test
+	public void verifyFrames() {
+		driver.get("https://demoqa.com/frames");
+		List<WebElement> totaliframetags = driver.findElements(By.tagName("iframe"));
+		int totalcount = totaliframetags.size();
+		System.out.println("Total number of iframes" + " " + totalcount);
+		// driver.switchTo().frame(2); //index
+		// driver.switchTo().frame("frame1"); //id or name
+		WebElement frame = driver.findElement(By.id("frame1")); // webelement
+		driver.switchTo().frame(frame); // webelement
+		WebElement framepageheading = driver.findElement(By.xpath("//h1[text()='This is a sample page']"));
+		String pageheading = framepageheading.getText();
+		System.out.println("Frame page heading is" + " " + pageheading);
+		driver.switchTo().defaultContent();
+	}
+
+	@Test
+	public void assignmentVerifyFrames() {
+
+		driver.get("https://www.hyrtutorials.com/p/frames-practice.html");
+		List<WebElement> totaliframetags = driver.findElements(By.tagName("iframe"));
+		int totalcount = totaliframetags.size();
+		System.out.println("Total number of iframes" + " " + totalcount);
+		WebElement textbox = driver.findElement(By.xpath("//input[@id='name']"));
+		textbox.sendKeys("My name is Arun");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,1150)", "");
+		driver.switchTo().frame("frm1"); // frame1
+		WebElement dropdownbox = driver.findElement(By.xpath("//select[@id='course']"));
+		Select select = new Select(dropdownbox);
+		select.selectByValue("java");
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame("frm2"); // frame2
+		WebElement dropdownbox1 = driver.findElement(By.xpath("//select[@id='selectnav1']"));
+		Select select1 = new Select(dropdownbox1);
+		select1.selectByVisibleText("-- Selenium");
+		driver.switchTo().defaultContent();
 	}
 }
