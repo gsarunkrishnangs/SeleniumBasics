@@ -422,4 +422,25 @@ public class SeleniumCommands extends BrowserLaunch {
 		select1.selectByVisibleText("-- Selenium");
 		driver.switchTo().defaultContent();
 	}
+
+	@Test
+	public void verifyDynamicTables() {
+
+		driver.get("https://money.rediff.com/indices");
+		WebElement showmore = driver.findElement(By.xpath("//a[@id='showMoreLess']"));
+		showmore.click();
+		WebElement webtable = driver.findElement(By.xpath("//table[@id='dataTable']//tbody"));
+		List<WebElement> rows = webtable.findElements(By.tagName("tr"));
+		int rowsize = rows.size();
+		for (int i = 0; i < rowsize; i++) {
+			List<WebElement> columns = rows.get(i).findElements(By.tagName("td"));
+			int columnsize = columns.size();
+			for (int j = 0; j < columnsize; j++) {
+				String celltext = columns.get(j).getText();
+				if (celltext.equals("S&P BSE MidCap")) {
+					System.out.println("Pre Close value is" + " " + columns.get(2).getText());
+				}
+			}
+		}
+	}
 }
