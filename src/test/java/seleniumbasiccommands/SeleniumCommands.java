@@ -1,5 +1,6 @@
 package seleniumbasiccommands;
 
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -10,7 +11,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -442,5 +445,21 @@ public class SeleniumCommands extends BrowserLaunch {
 				}
 			}
 		}
+	}
+	
+	@Test
+	public void verificationImplicitAndExplicitWait() {
+		
+		driver.get("https://demoqa.com/alerts");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,350)", "");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //implicit Wait
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20)); //Explicit Wait
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("timerAlertButton")));
+		WebElement clickbutton = driver.findElement(By.xpath("//button[@id='timerAlertButton']"));
+		clickbutton.click();
+		wait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
 	}
 }
