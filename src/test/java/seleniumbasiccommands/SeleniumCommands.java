@@ -3,6 +3,7 @@ package seleniumbasiccommands;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.openqa.selenium.Alert;
@@ -12,6 +13,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -446,15 +448,46 @@ public class SeleniumCommands extends BrowserLaunch {
 			}
 		}
 	}
-	
+
 	@Test
-	public void verificationImplicitAndExplicitWait() {
-		
+	public void verifyImplicitWait() {
+
 		driver.get("https://demoqa.com/alerts");
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,350)", "");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //implicit Wait
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20)); //Explicit Wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
+		WebElement clickbutton = driver.findElement(By.xpath("//button[@id='timerAlertButton']"));
+		clickbutton.click();
+		/*
+		 * Alert alert = driver.switchTo().alert(); alert.accept();
+		 */
+	}
+
+	@Test
+	public void verifyExplicitWait() {
+
+		driver.get("https://demoqa.com/alerts");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,350)", "");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit Wait (WebDriverWait = Class)
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("timerAlertButton")));
+		WebElement clickbutton = driver.findElement(By.xpath("//button[@id='timerAlertButton']"));
+		clickbutton.click();
+		wait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+	}
+
+	@Test
+	public void verifyFluentWait() {
+
+		driver.get("https://demoqa.com/alerts");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,350)", "");
+		FluentWait wait = new FluentWait(driver); // (FluentWait = Class)
+		wait.withTimeout(Duration.ofSeconds(20));
+		wait.pollingEvery(Duration.ofSeconds(3));
+		wait.ignoring(NoSuchElementException.class);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("timerAlertButton")));
 		WebElement clickbutton = driver.findElement(By.xpath("//button[@id='timerAlertButton']"));
 		clickbutton.click();
