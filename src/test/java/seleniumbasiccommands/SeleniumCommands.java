@@ -450,6 +450,25 @@ public class SeleniumCommands extends BrowserLaunch {
 	}
 
 	@Test
+	public void assignmentDynamicTables() {
+
+		driver.get("https://selenium.qabible.in/table-pagination.php");
+		WebElement newtable = driver.findElement(By.xpath("//table[@id='dtBasicExample']"));
+		List<WebElement> rows = driver.findElements(By.tagName("tr"));
+		int rowcount = rows.size();
+		for (int i = 0; i < rowcount; i++) {
+			List<WebElement> columns = rows.get(i).findElements(By.tagName("td"));
+			int columncount = columns.size();
+			for (int j = 0; j < columncount; j++) {
+				String cellvalue = columns.get(j).getText();
+				if (cellvalue.equals("Airi Satou")) {
+					System.out.println("Office is" + " " + columns.get(2).getText());
+				}
+			}
+		}
+	}
+
+	@Test
 	public void verifyImplicitWait() {
 
 		driver.get("https://demoqa.com/alerts");
@@ -494,5 +513,45 @@ public class SeleniumCommands extends BrowserLaunch {
 		wait.until(ExpectedConditions.alertIsPresent());
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
+	}
+
+	@Test
+	public void verifyJavaScriptSendkeysAndClick() {
+
+		driver.get("https://demowebshop.tricentis.com/");
+		JavascriptExecutor js = (JavascriptExecutor) driver; // JavascriptExecutor is an interface
+		js.executeScript("document.getElementById(\"newsletter-email\").value='abc@gmail.com'");
+		js.executeScript("document.getElementById(\"newsletter-subscribe-button\").click()");
+
+	}
+
+	@Test
+	public void verifyVerticalScroll() {
+
+		driver.get("https://demowebshop.tricentis.com/");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollTo(0,document.body.scrollHeight)"); // Scrolling to final bottom position
+		js.executeScript("window.scrollTo(0,400)");
+	}
+
+	@Test
+	public void assignmentVerifyJavaScriptLogin() {
+
+		driver.get("https://demowebshop.tricentis.com/");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("document.getElementsByClassName('ico-login')[0].click()");
+		js.executeScript("document.getElementById(\"Email\").value='12arunk12@gmail.com'");
+		js.executeScript("document.getElementById(\"Password\").value='arunk12@'");
+		js.executeScript("document.getElementsByClassName('button-1 login-button')[0].click()");
+
+	}
+
+	@Test
+	public void assignmentVerifyVerticalScrollbars() {
+
+		driver.get("https://www.amazon.in");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		js.executeScript("window.scrollTo(0,800)");
 	}
 }
