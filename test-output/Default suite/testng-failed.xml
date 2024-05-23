@@ -5,7 +5,8 @@
     <classes>
       <class name="seleniumbasiccommands.SeleniumCommands">
         <methods>
-          <include name="verifyrRegistrationMercuryTours"/>
+          <include name="verifyFileUpload"/>
+          <include name="closeBrowser"/>
           <include name="setup"/>
         </methods>
       </class> <!-- seleniumbasiccommands.SeleniumCommands -->
