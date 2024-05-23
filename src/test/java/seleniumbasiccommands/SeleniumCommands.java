@@ -379,6 +379,7 @@ public class SeleniumCommands extends BrowserLaunch {
 		checkbox.click();
 		WebElement submitbutton = driver.findElement(By.xpath("//button[@id='submitbutton']"));
 		submitbutton.click();
+
 		/*
 		 * WebElement result = driver.findElement(By.
 		 * xpath("//center[text()='has been successfully uploaded.']")); String
@@ -387,6 +388,7 @@ public class SeleniumCommands extends BrowserLaunch {
 		 * expectedresult = "1 file has been successfully uploaded.";
 		 * Assert.assertEquals(actualresult, expectedresult, "File uploading failed");
 		 */
+
 	}
 
 	@Test
@@ -554,4 +556,15 @@ public class SeleniumCommands extends BrowserLaunch {
 		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 		js.executeScript("window.scrollTo(0,800)");
 	}
+
+	@Test
+	public void verifyScreenShot() {
+
+		driver.get("https://demowebshop.tricentis.com/");
+		String actualtitle = driver.getTitle();
+		System.out.println("Actual title is" + " " + actualtitle);
+		String expectedtitle = "Demowebshop1";
+		Assert.assertEquals(actualtitle, expectedtitle, "Invalid title");
+	}
+
 }
