@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumbasiccommands.SeleniumCommands">
+      <class name="test.RegistrationPageTest">
         <methods>
-          <include name="verifyFileUpload"/>
           <include name="closeBrowser"/>
+          <include name="verifyRegisterPageTitle"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- seleniumbasiccommands.SeleniumCommands -->
+      </class> <!-- test.RegistrationPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
