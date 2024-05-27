@@ -17,7 +17,6 @@ import org.testng.annotations.BeforeMethod;
 public class Base {
 
 	
-	
 	protected WebDriver driver;
 
 	public void initializeBrowser(String browser) {
