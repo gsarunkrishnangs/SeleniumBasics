@@ -20,7 +20,7 @@ import utilities.ExcelUtility;
 public class HomePageTest extends Base {
 
 	@Test
-	public void verifyHomePageTitle() throws IOException {
+	public void verifyHomePageTitle() {
 
 		driver.get("https://demowebshop.tricentis.com/");
 		String actualtitle = driver.getTitle();
@@ -31,7 +31,7 @@ public class HomePageTest extends Base {
 	}
 
 	@Test
-	public void verifyCommunityPollSelection() throws IOException {
+	public void verifyCommunityPollSelection() {
 
 		driver.get("https://demowebshop.tricentis.com/");
 		driver.manage().window().maximize();
@@ -43,13 +43,12 @@ public class HomePageTest extends Base {
 			String pollelementstext = communitypollelements.get(i).getText();
 			if (pollelementstext.equals(exceldata)) {
 				communitypollelements.get(i).click();
-				WebElement selectedradiobutton = driver.findElement(By.xpath("//input[@id='pollanswers-3']"));
-				boolean test = selectedradiobutton.isSelected();
-				System.out.println("Poor radio button is selected" + " " + test);
-				Assert.assertTrue(test, "Poor radio button is not selected");
 			}
-
 		}
+		WebElement selectedradiobutton = driver.findElement(By.xpath("//input[@id='pollanswers-3']"));
+		boolean test = selectedradiobutton.isSelected();
+		System.out.println("Poor radio button is selected" + " " + test);
+		Assert.assertTrue(test, "Poor radio button is not selected");
 	}
 
 }

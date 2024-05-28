@@ -13,7 +13,7 @@ import utilities.ExcelUtility;
 public class RegistrationPageTest extends Base {
 
 	@Test
-	public void verifyRegisterPageTitle() throws IOException {
+	public void verifyRegisterPageTitle() {
 
 		driver.get("https://demowebshop.tricentis.com/");
 		WebElement registrationlink = driver.findElement(By.linkText("Register"));
@@ -25,7 +25,7 @@ public class RegistrationPageTest extends Base {
 	}
 
 	@Test
-	public void verifyUserRegistration() throws IOException {
+	public void verifyUserRegistration() {
 
 		driver.get("https://demowebshop.tricentis.com/");
 		WebElement registrationlink = driver.findElement(By.linkText("Register"));
