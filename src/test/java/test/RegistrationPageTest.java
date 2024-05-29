@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import automationcore.Base;
 import utilities.ExcelUtility;
+import utilities.RandomDataUtility;
 
 public class RegistrationPageTest extends Base {
 
@@ -25,21 +26,24 @@ public class RegistrationPageTest extends Base {
 	}
 
 	@Test
-	public void verifyUserRegistration() {
-
+	public void verifyUserRegistration() { // RandomDataUtility(Faker class), Add Java Faker dependency in POM xml
+		String firstname_new = RandomDataUtility.getFirstName();
+		String lastname_new = RandomDataUtility.getLastName();
+		String mailid = firstname_new + "." + lastname_new + "@gmail.com";
+		String password_new = firstname_new + "." + lastname_new;
 		driver.get("https://demowebshop.tricentis.com/");
 		WebElement registrationlink = driver.findElement(By.linkText("Register"));
 		registrationlink.click();
 		WebElement firstname = driver.findElement(By.xpath("//input[@id='FirstName']"));
-		firstname.sendKeys("Arun");
+		firstname.sendKeys(firstname_new);
 		WebElement lastname = driver.findElement(By.xpath("//input[@id='LastName']"));
-		lastname.sendKeys("Krishnan");
+		lastname.sendKeys(lastname_new);
 		WebElement email = driver.findElement(By.xpath("//input[@id='Email']"));
-		email.sendKeys("gsarunkrishnangs12345678@gmail.com");
+		email.sendKeys(mailid);
 		WebElement password = driver.findElement(By.xpath("//input[@id='Password']"));
-		password.sendKeys("arun@123");
+		password.sendKeys(password_new);
 		WebElement confirmpassword = driver.findElement(By.xpath("//input[@id='ConfirmPassword']"));
-		confirmpassword.sendKeys("arun@123");
+		confirmpassword.sendKeys(password_new);
 		WebElement registerbutton = driver.findElement(By.xpath("//input[@id='register-button']"));
 		registerbutton.click();
 		String registrationhomewindow = driver.getTitle();
