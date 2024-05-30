@@ -13,7 +13,7 @@ import utilities.RandomDataUtility;
 
 public class RegistrationPageTest extends Base {
 
-	@Test
+	@Test(priority = 8)
 	public void verifyRegisterPageTitle() {
 
 		driver.get("https://demowebshop.tricentis.com/");
@@ -25,7 +25,7 @@ public class RegistrationPageTest extends Base {
 		Assert.assertEquals(actualtitle, expectedtitle, "Registration page is not displayed");
 	}
 
-	@Test
+	@Test(priority = 6)
 	public void verifyUserRegistration() { // RandomDataUtility(Faker class), Add Java Faker dependency in POM xml
 		String firstname_new = RandomDataUtility.getFirstName();
 		String lastname_new = RandomDataUtility.getLastName();

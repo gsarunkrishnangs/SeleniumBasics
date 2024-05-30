@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-29T19:39:18 IST" name="Default suite" finished-at="2024-05-29T19:39:31 IST" duration-ms="12753">
+  <suite started-at="2024-05-30T20:39:58 IST" name="Functional Suite" finished-at="2024-05-30T20:40:29 IST" duration-ms="30287">
     <groups>
     </groups>
-    <test started-at="2024-05-29T19:39:18 IST" name="Default test" finished-at="2024-05-29T19:39:31 IST" duration-ms="12753">
+    <test started-at="2024-05-30T20:39:58 IST" name="Functional Test" finished-at="2024-05-30T20:40:29 IST" duration-ms="30287">
       <class name="test.RegistrationPageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:test.RegistrationPageTest@6cf0e0ba]" started-at="2024-05-29T19:39:18 IST" name="setup" finished-at="2024-05-29T19:39:22 IST" duration-ms="3514" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:test.RegistrationPageTest@765d7657]" started-at="2024-05-30T20:40:18 IST" name="setup" finished-at="2024-05-30T20:40:20 IST" duration-ms="1535" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyUserRegistration()[pri:0, instance:test.RegistrationPageTest@6cf0e0ba]" started-at="2024-05-29T19:39:22 IST" name="verifyUserRegistration" finished-at="2024-05-29T19:39:31 IST" duration-ms="9151" status="PASS">
+        <test-method signature="verifyUserRegistration()[pri:0, instance:test.RegistrationPageTest@765d7657]" started-at="2024-05-30T20:40:20 IST" name="verifyUserRegistration" finished-at="2024-05-30T20:40:29 IST" duration-ms="8881" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyUserRegistration -->
-        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.RegistrationPageTest@6cf0e0ba]" started-at="2024-05-29T19:39:31 IST" name="closeBrowser" finished-at="2024-05-29T19:39:31 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.RegistrationPageTest@765d7657]" started-at="2024-05-30T20:40:29 IST" name="closeBrowser" finished-at="2024-05-30T20:40:29 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyUserRegistration status=SUCCESS method=RegistrationPageTest.verifyUserRegistration()[pri:0, instance:test.RegistrationPageTest@6cf0e0ba] output={null}]]]>
+                <![CDATA[[TestResult name=verifyUserRegistration status=SUCCESS method=RegistrationPageTest.verifyUserRegistration()[pri:0, instance:test.RegistrationPageTest@765d7657] output={null}]]]>
               </value>
             </param>
           </params>
@@ -27,6 +27,48 @@
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- test.RegistrationPageTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="test.HomePageTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:test.HomePageTest@3349e9bb]" started-at="2024-05-30T20:39:58 IST" name="setup" finished-at="2024-05-30T20:40:02 IST" duration-ms="3991" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyHomePageTitle()[pri:1, instance:test.HomePageTest@3349e9bb]" started-at="2024-05-30T20:40:02 IST" name="verifyHomePageTitle" finished-at="2024-05-30T20:40:08 IST" duration-ms="6038" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHomePageTitle -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.HomePageTest@3349e9bb]" started-at="2024-05-30T20:40:08 IST" name="closeBrowser" finished-at="2024-05-30T20:40:08 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyHomePageTitle status=SUCCESS method=HomePageTest.verifyHomePageTitle()[pri:1, instance:test.HomePageTest@3349e9bb] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- test.HomePageTest -->
+      <class name="test.LoginPageTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:test.LoginPageTest@443118b0]" started-at="2024-05-30T20:40:08 IST" name="setup" finished-at="2024-05-30T20:40:10 IST" duration-ms="1150" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyUserLogin()[pri:4, instance:test.LoginPageTest@443118b0]" started-at="2024-05-30T20:40:10 IST" name="verifyUserLogin" finished-at="2024-05-30T20:40:18 IST" duration-ms="8633" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserLogin -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.LoginPageTest@443118b0]" started-at="2024-05-30T20:40:18 IST" name="closeBrowser" finished-at="2024-05-30T20:40:18 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserLogin status=SUCCESS method=LoginPageTest.verifyUserLogin()[pri:4, instance:test.LoginPageTest@443118b0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- test.LoginPageTest -->
+    </test> <!-- Functional Test -->
+  </suite> <!-- Functional Suite -->
 </testng-results>

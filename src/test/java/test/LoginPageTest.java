@@ -9,11 +9,12 @@ import org.testng.annotations.Test;
 
 import automationcore.Base;
 import dataprovider.DataProviders;
+import listener.ReTryAnalyzer;
 import utilities.ExcelUtility;
 
 public class LoginPageTest extends Base {
 
-	@Test
+	@Test (priority = 2)
 	public void verifyLoginPageTitle() {
 
 		driver.get("https://demowebshop.tricentis.com/login");
@@ -23,8 +24,8 @@ public class LoginPageTest extends Base {
 		Assert.assertEquals(actualtitle, expectedtitle, "Login page is not displayed");
 	}
 
-	@Test
-	public void verifyUserLogin() {
+	@Test(priority = 4,retryAnalyzer=ReTryAnalyzer.class)
+	public void verifyUserLogin() {  //ReTryAnalyzer (If test fails, will repeat the test as per the count already set in the ReTryAnalyzer class)
 
 		driver.get("https://demowebshop.tricentis.com/login");
 		WebElement username = driver.findElement(By.xpath("//input[@id='Email']"));
@@ -40,7 +41,7 @@ public class LoginPageTest extends Base {
 		Assert.assertEquals(actualmailid, expectedmailid, "Login attempt is failed");
 	}
 
-	@Test
+	@Test(priority = 7)
 	public void verifyUserLoginWithInvalidCredentials() {
 
 		driver.get("https://demowebshop.tricentis.com/login");
@@ -58,7 +59,7 @@ public class LoginPageTest extends Base {
 		Assert.assertEquals(actualmessage, expectedmessage, "Login is successful");
 	}
 
-	@Test(dataProvider = "InvalidUserCredentials", dataProviderClass = DataProviders.class) // variable (dataprovider
+	@Test(priority = 5,dataProvider = "InvalidUserCredentials", dataProviderClass = DataProviders.class) // variable (dataprovider
 																							// name),class
 	public void verifyUserLoginInvalidCredentials(String username, String password) {
 

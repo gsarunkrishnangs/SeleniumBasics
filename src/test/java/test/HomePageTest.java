@@ -19,7 +19,7 @@ import utilities.ExcelUtility;
 
 public class HomePageTest extends Base {
 
-	@Test
+	@Test (priority = 1)
 	public void verifyHomePageTitle() {
 
 		driver.get("https://demowebshop.tricentis.com/");
@@ -30,7 +30,7 @@ public class HomePageTest extends Base {
 
 	}
 
-	@Test
+	@Test (priority = 3)
 	public void verifyCommunityPollSelection() {
 
 		driver.get("https://demowebshop.tricentis.com/");
