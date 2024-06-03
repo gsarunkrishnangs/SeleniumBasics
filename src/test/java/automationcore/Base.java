@@ -13,6 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 public class Base {
 
@@ -34,9 +35,10 @@ public class Base {
 	}
 
 	@BeforeMethod
-	public void setup() {
+	@Parameters("browser")
+	public void setup(String browser_name) {
 
-		initializeBrowser("Chrome");
+		initializeBrowser(browser_name);
 	}
 
 	@AfterMethod
@@ -46,7 +48,7 @@ public class Base {
 			takeScreenShot(result);
 		}
 
-		// driver.quit();
+		driver.quit();
 	}
 
 	public void takeScreenShot(ITestResult result) throws IOException { // ITestResult = TestNG listener

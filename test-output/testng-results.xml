@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-05-30T20:39:58 IST" name="Functional Suite" finished-at="2024-05-30T20:40:29 IST" duration-ms="30287">
+  <suite started-at="2024-06-03T22:44:16 IST" name="Functional Suite" finished-at="2024-06-03T22:45:29 IST" duration-ms="73110">
     <groups>
     </groups>
-    <test started-at="2024-05-30T20:39:58 IST" name="Functional Test" finished-at="2024-05-30T20:40:29 IST" duration-ms="30287">
-      <class name="test.RegistrationPageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:test.RegistrationPageTest@765d7657]" started-at="2024-05-30T20:40:18 IST" name="setup" finished-at="2024-05-30T20:40:20 IST" duration-ms="1535" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyUserRegistration()[pri:0, instance:test.RegistrationPageTest@765d7657]" started-at="2024-05-30T20:40:20 IST" name="verifyUserRegistration" finished-at="2024-05-30T20:40:29 IST" duration-ms="8881" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyUserRegistration -->
-        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.RegistrationPageTest@765d7657]" started-at="2024-05-30T20:40:29 IST" name="closeBrowser" finished-at="2024-05-30T20:40:29 IST" duration-ms="0" status="PASS">
+    <test started-at="2024-06-03T22:44:16 IST" name="HomePage Test" finished-at="2024-06-03T22:44:28 IST" duration-ms="11868">
+      <class name="test.HomePageTest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.HomePageTest@42a48628]" started-at="2024-06-03T22:44:16 IST" name="setup" finished-at="2024-06-03T22:44:19 IST" duration-ms="2307" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyUserRegistration status=SUCCESS method=RegistrationPageTest.verifyUserRegistration()[pri:0, instance:test.RegistrationPageTest@765d7657] output={null}]]]>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyHomePageTitle()[pri:1, instance:test.HomePageTest@42a48628]" started-at="2024-06-03T22:44:19 IST" name="verifyHomePageTitle" finished-at="2024-06-03T22:44:23 IST" duration-ms="4059" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHomePageTitle -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.HomePageTest@42a48628]" started-at="2024-06-03T22:44:23 IST" name="closeBrowser" finished-at="2024-06-03T22:44:23 IST" duration-ms="182" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyHomePageTitle status=SUCCESS method=HomePageTest.verifyHomePageTitle()[pri:1, instance:test.HomePageTest@42a48628] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- test.RegistrationPageTest -->
-      <class name="test.HomePageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:test.HomePageTest@3349e9bb]" started-at="2024-05-30T20:39:58 IST" name="setup" finished-at="2024-05-30T20:40:02 IST" duration-ms="3991" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyHomePageTitle()[pri:1, instance:test.HomePageTest@3349e9bb]" started-at="2024-05-30T20:40:02 IST" name="verifyHomePageTitle" finished-at="2024-05-30T20:40:08 IST" duration-ms="6038" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyHomePageTitle -->
-        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.HomePageTest@3349e9bb]" started-at="2024-05-30T20:40:08 IST" name="closeBrowser" finished-at="2024-05-30T20:40:08 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.HomePageTest@42a48628]" started-at="2024-06-03T22:44:23 IST" name="setup" finished-at="2024-06-03T22:44:25 IST" duration-ms="1737" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyHomePageTitle status=SUCCESS method=HomePageTest.verifyHomePageTitle()[pri:1, instance:test.HomePageTest@3349e9bb] output={null}]]]>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyCommunityPollSelection()[pri:3, instance:test.HomePageTest@42a48628]" started-at="2024-06-03T22:44:25 IST" name="verifyCommunityPollSelection" finished-at="2024-06-03T22:44:28 IST" duration-ms="3310" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCommunityPollSelection -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.HomePageTest@42a48628]" started-at="2024-06-03T22:44:28 IST" name="closeBrowser" finished-at="2024-06-03T22:44:28 IST" duration-ms="202" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyCommunityPollSelection status=SUCCESS method=HomePageTest.verifyCommunityPollSelection()[pri:3, instance:test.HomePageTest@42a48628] output={null}]]]>
               </value>
             </param>
           </params>
@@ -48,20 +60,195 @@
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- test.HomePageTest -->
+    </test> <!-- HomePage Test -->
+    <test started-at="2024-06-03T22:44:28 IST" name="LoginPage Test" finished-at="2024-06-03T22:45:08 IST" duration-ms="39199">
       <class name="test.LoginPageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:test.LoginPageTest@443118b0]" started-at="2024-05-30T20:40:08 IST" name="setup" finished-at="2024-05-30T20:40:10 IST" duration-ms="1150" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyUserLogin()[pri:4, instance:test.LoginPageTest@443118b0]" started-at="2024-05-30T20:40:10 IST" name="verifyUserLogin" finished-at="2024-05-30T20:40:18 IST" duration-ms="8633" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyUserLogin -->
-        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.LoginPageTest@443118b0]" started-at="2024-05-30T20:40:18 IST" name="closeBrowser" finished-at="2024-05-30T20:40:18 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:28 IST" name="setup" finished-at="2024-06-03T22:44:30 IST" duration-ms="1850" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyUserLogin status=SUCCESS method=LoginPageTest.verifyUserLogin()[pri:4, instance:test.LoginPageTest@443118b0] output={null}]]]>
+                <![CDATA[Edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyLoginPageTitle()[pri:2, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:30 IST" name="verifyLoginPageTitle" finished-at="2024-06-03T22:44:33 IST" duration-ms="2542" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginPageTitle -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:33 IST" name="closeBrowser" finished-at="2024-06-03T22:44:34 IST" duration-ms="1314" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyLoginPageTitle status=SUCCESS method=LoginPageTest.verifyLoginPageTitle()[pri:2, instance:test.LoginPageTest@6989da5e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:34 IST" name="setup" finished-at="2024-06-03T22:44:36 IST" duration-ms="1561" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyUserLogin()[pri:4, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:36 IST" name="verifyUserLogin" finished-at="2024-06-03T22:44:41 IST" duration-ms="5339" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserLogin -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:41 IST" name="closeBrowser" finished-at="2024-06-03T22:44:42 IST" duration-ms="1322" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserLogin status=SUCCESS method=LoginPageTest.verifyUserLogin()[pri:4, instance:test.LoginPageTest@6989da5e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:42 IST" name="setup" finished-at="2024-06-03T22:44:44 IST" duration-ms="1700" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyUserLoginInvalidCredentials(java.lang.String,java.lang.String)[pri:5, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:44 IST" name="verifyUserLoginInvalidCredentials" data-provider="InvalidUserCredentials" finished-at="2024-06-03T22:44:47 IST" duration-ms="3314" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[gsarunkrishnangs123456789@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[arun@123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserLoginInvalidCredentials -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:47 IST" name="closeBrowser" finished-at="2024-06-03T22:44:49 IST" duration-ms="1284" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserLoginInvalidCredentials status=SUCCESS method=LoginPageTest.verifyUserLoginInvalidCredentials(java.lang.String,java.lang.String)[pri:5, instance:test.LoginPageTest@6989da5e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:49 IST" name="setup" finished-at="2024-06-03T22:44:50 IST" duration-ms="1723" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyUserLoginInvalidCredentials(java.lang.String,java.lang.String)[pri:5, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:50 IST" name="verifyUserLoginInvalidCredentials" data-provider="InvalidUserCredentials" finished-at="2024-06-03T22:44:54 IST" duration-ms="3460" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[gsarunkrishnangs12345678@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[arun@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserLoginInvalidCredentials -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:54 IST" name="closeBrowser" finished-at="2024-06-03T22:44:55 IST" duration-ms="1294" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserLoginInvalidCredentials status=SUCCESS method=LoginPageTest.verifyUserLoginInvalidCredentials(java.lang.String,java.lang.String)[pri:5, instance:test.LoginPageTest@6989da5e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:55 IST" name="setup" finished-at="2024-06-03T22:44:57 IST" duration-ms="1547" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyUserLoginInvalidCredentials(java.lang.String,java.lang.String)[pri:5, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:44:57 IST" name="verifyUserLoginInvalidCredentials" data-provider="InvalidUserCredentials" finished-at="2024-06-03T22:45:00 IST" duration-ms="3370" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[gsarunkrishnangs123456789@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[arun@1234]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserLoginInvalidCredentials -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:45:00 IST" name="closeBrowser" finished-at="2024-06-03T22:45:01 IST" duration-ms="1302" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserLoginInvalidCredentials status=SUCCESS method=LoginPageTest.verifyUserLoginInvalidCredentials(java.lang.String,java.lang.String)[pri:5, instance:test.LoginPageTest@6989da5e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:45:01 IST" name="setup" finished-at="2024-06-03T22:45:03 IST" duration-ms="1590" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyUserLoginWithInvalidCredentials()[pri:7, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:45:03 IST" name="verifyUserLoginWithInvalidCredentials" finished-at="2024-06-03T22:45:06 IST" duration-ms="3372" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserLoginWithInvalidCredentials -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.LoginPageTest@6989da5e]" started-at="2024-06-03T22:45:06 IST" name="closeBrowser" finished-at="2024-06-03T22:45:08 IST" duration-ms="1278" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserLoginWithInvalidCredentials status=SUCCESS method=LoginPageTest.verifyUserLoginWithInvalidCredentials()[pri:7, instance:test.LoginPageTest@6989da5e] output={null}]]]>
               </value>
             </param>
           </params>
@@ -69,6 +256,62 @@
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- test.LoginPageTest -->
-    </test> <!-- Functional Test -->
+    </test> <!-- LoginPage Test -->
+    <test started-at="2024-06-03T22:45:08 IST" name="RegistrationPage Test" finished-at="2024-06-03T22:45:29 IST" duration-ms="21541">
+      <class name="test.RegistrationPageTest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.RegistrationPageTest@662ac478]" started-at="2024-06-03T22:45:08 IST" name="setup" finished-at="2024-06-03T22:45:12 IST" duration-ms="4012" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyUserRegistration()[pri:6, instance:test.RegistrationPageTest@662ac478]" started-at="2024-06-03T22:45:12 IST" name="verifyUserRegistration" finished-at="2024-06-03T22:45:18 IST" duration-ms="6402" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserRegistration -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.RegistrationPageTest@662ac478]" started-at="2024-06-03T22:45:18 IST" name="closeBrowser" finished-at="2024-06-03T22:45:19 IST" duration-ms="1109" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserRegistration status=SUCCESS method=RegistrationPageTest.verifyUserRegistration()[pri:6, instance:test.RegistrationPageTest@662ac478] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:test.RegistrationPageTest@662ac478]" started-at="2024-06-03T22:45:19 IST" name="setup" finished-at="2024-06-03T22:45:24 IST" duration-ms="4424" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyRegisterPageTitle()[pri:8, instance:test.RegistrationPageTest@662ac478]" started-at="2024-06-03T22:45:24 IST" name="verifyRegisterPageTitle" finished-at="2024-06-03T22:45:28 IST" duration-ms="4515" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRegisterPageTitle -->
+        <test-method is-config="true" signature="closeBrowser(org.testng.ITestResult)[pri:0, instance:test.RegistrationPageTest@662ac478]" started-at="2024-06-03T22:45:28 IST" name="closeBrowser" finished-at="2024-06-03T22:45:29 IST" duration-ms="1066" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyRegisterPageTitle status=SUCCESS method=RegistrationPageTest.verifyRegisterPageTitle()[pri:8, instance:test.RegistrationPageTest@662ac478] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- test.RegistrationPageTest -->
+    </test> <!-- RegistrationPage Test -->
   </suite> <!-- Functional Suite -->
 </testng-results>

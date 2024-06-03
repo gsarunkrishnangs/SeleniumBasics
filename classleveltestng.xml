@@ -2,6 +2,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Functional Suite">
 	<test thread-count="5" name="Functional Test">
+		<parameter name="browser" value="Chrome"/>
+		
 		<classes>
 			<class name="test.HomePageTest">
 				<methods>
